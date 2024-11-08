@@ -40,11 +40,11 @@ def Question1_a():
 
 
 def Question1_c():
-    return "O(?)"  # If using N use N and if power use N**"
+    return "O(1)"  # If using N use N and if power use N**"
 
 
 # ------------------------------------------------
-Q2 = list()  # Alter this code
+Q2 = deque()  # Alter this code
 
 
 # the collection is filled in the assessment code.
@@ -56,11 +56,11 @@ def Question2Example(Q2, K: int):
 
 
 def Question2_a():
-    return "O(?) If using N use N and if power use N**"
+    return "O(N)"   # If using N use N and if power use N**
 
 
 def Question2_c():
-    return "O(?)If using N use N and if power use N**"
+    return "O(1)"   # If using N use N and if power use N**
 
 
 # ------------------------------------------------
@@ -82,7 +82,7 @@ def Question3ExampleFind(Q3, What):
 
 
 def Question3_a():
-    return "O(?) If using N use N and if power use N**"
+    return "O(N)"   # If using N use N and if power use N**
 
 
 def Question3_c():
