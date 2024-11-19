@@ -56,97 +56,74 @@ def Question2Example(Q2, K: int):
 
 
 def Question2_a():
-    return "O(N)"   # If using N use N and if power use N**
+    return "O(N)"  # If using N use N and if power use N**
 
 
 def Question2_c():
-    return "O(1)"   # If using N use N and if power use N**
+    return "O(1)"  # If using N use N and if power use N**
 
 
 # ------------------------------------------------
-Q3 = list()  # OK to alter this
+Q3 = set()  # OK to alter this
 
 
 def Question3ExampleADD(Q3, item: int):
     # OK TO CHANGE THE CODE BELOW TO HELP
-    Q3.append(item)
+    Q3.add(item)
 
 
 def Question3ExampleFind(Q3, What):
     # OK TO CHANGE THE CODE BELOW TO HELP
-    for it in Q3:
-        if it == What:
-            return True
-    # end for
-    return False  # not found
+    return What in Q3
 
 
 def Question3_a():
-    return "O(N)"   # If using N use N and if power use N**
+    return "O(N)"  # If using N use N and if power use N**
 
 
 def Question3_c():
-    return "O(?)If using N use N and if power use N**"
+    return "O(1)"  # If using N use N and if power use N**
 
 
 # ------------------------------------------------
-Q4 = list()  # [ "fhfh" , "djdjd", "wewew"]
-Q4_index = list()  # [ 0, 1, 2]
+Q4 = dict()
 
 
 def Question4ExampleADD(Q4, item: str):
     # OK TO CHANGE THE CODE BELOW TO HELP
-    Q4.append(item)
-    Q4_index.append(len(Q4))
+    Q4[item] = len(Q4)
 
 
-# So if user asks for What =  "djdjd" return 1
+# So if user asks for What =  "djdid" return 1
 def Question4ExampleFind(Q4, What):
     # OK TO CHANGE THE CODE BELOW TO HELP
-    index = 0
-    for it in Q4:
-        if it == What:
-            return index
-        index += 1
-    # end for
-    return -1  # not found
+    return Q4.get(What, -1)
 
 
 # What is the O notation for Question4ExampleFind
 def Question4_a():
-    return "O(?) If using N use N and if power use N**"
+    return "O(N**2)"   # If using N use N and if power use N**"
 
 
 # What is the O notation for Question4ExampleFind after you fix it
 def Question4_c():
-    return "O(?)If using N use N and if power use N**"
+    return "O(N)"   # If using N use N and if power use N**"
 
 
-Q5a = deque()
-Q5b = deque()
+Q5a = set()
+Q5b = set()
 
 
 def Question5Add(Q5a, whattoAdd_A, Q5b, whatToAdd_B):
     # OK TO change the code below to help
-    Q5a.append(whattoAdd_A)
-    Q5b.append(whatToAdd_B)
+    Q5a.add(whattoAdd_A)
+    Q5b.add(whatToAdd_B)
 
 
 # return a itterable collection of everything in A which is in B
 # Order is not important in the collection
 def Question5Find(Q5a, Q5b):
-    incommon = []
-
-    for a in Q5a:
-        for b in Q5b:
-            if a == b:
-                if a not in incommon:
-                    incommon.append(a)
-                # end if
-            # end if
-        # end for
-    # end for
-    return incommon
+    return list(Q5a & Q5b)
 
 
 def Question5_a():
@@ -168,7 +145,7 @@ def Question6WhatIsMyONotation(items):  # DO NOT ALTER THIS CODE
 
 
 def Question6():
-    return "O(?) If using N use N and if power use N**"
+    return "O(N**2)"  # If using N use N and if power use N**"
 
 
 Q7 = set()
@@ -179,7 +156,7 @@ def Question7WhatIsMyONotation(item) -> bool:
 
 
 def Question7():
-    return "O(?) If using N use N and if power use N**"
+    return "O(1)"  # If using N use N and if power use N**"
 
 
 Q8 = list()  # don't change this
@@ -195,24 +172,37 @@ def Question8WhatIsMyONotation(Q8, item) -> int:
 
 
 def Question8():
-    return "O(?) If using N use N and if power use N**"
+    return "O(LOG(N))"  # If using N use N and if power use N**"
 
 
 Q9 = [random.uniform(-100, 100) for _ in range(10000)]
 
 
 def Question9WhatIsMyTime(Q9):
-    return Q9.sort()
+    Q9.sort()
+    return Q9
 
 
 def Question9():
+    start_time = time.time()
+
     # Your code wraps around test
     global Q9
     Question9WhatIsMyTime(Q9)
     # Your code wraps around test
-    return -1
+
+    end_time = time.time()
+    return (end_time - start_time) * 1000
 
 
-def Question10():
+def Question10(lst):
     # your code here
-    pass
+    ys = lst
+    xs = [x for x in range(len(ys))]
+
+    plt.plot(xs, ys)
+    plt.show()
+    plt.close()
+
+
+Question10(Question9WhatIsMyTime(Q9))
